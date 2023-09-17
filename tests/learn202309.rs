@@ -1,5 +1,5 @@
 #[test]
-fn compare_option() {
+fn learn_compare_option() {
     let a = Some(3);
     let b = Some(4);
     let c = None;
@@ -12,12 +12,12 @@ fn compare_option() {
 }
 
 #[test]
-fn and_then() {
-    let a = Some(3);
-    let b = None;
+fn learn_and_then() {
+    let a: Option<i32> = Some(3);
+    let b: Option<i32> = None;
 
     // and_then() return Option<T>.
     // If and_then() receives None, it returns None.
-    assert_eq!(a.max(b).and_then(|n| Some(n * 3)), Some(9));
+    assert_eq!(a.and_then(|n| Some(n * 3)), Some(9));
     assert_eq!(b.and_then(|n| Some(n * 3)), None);
 }
