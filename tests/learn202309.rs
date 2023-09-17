@@ -33,3 +33,12 @@ fn learn_cloned() {
     assert_eq!(b.cloned(), None);
     assert_eq!(b, None);
 }
+
+#[test]
+fn learn_flatten_used_for_option_iter() {
+    let a = [Some(1), None, Some(2), None, Some(3)].iter();
+
+    // flatten() make change the type of Option<Option<T>> to Option<T>.
+    // flatten() removes None.
+    assert_eq!(a.flatten().collect::<Vec<_>>(), vec![&1, &2, &3]);
+}
