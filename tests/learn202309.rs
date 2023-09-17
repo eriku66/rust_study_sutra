@@ -21,3 +21,15 @@ fn learn_and_then() {
     assert_eq!(a.and_then(|n| Some(n * 3)), Some(9));
     assert_eq!(b.and_then(|n| Some(n * 3)), None);
 }
+
+#[test]
+fn learn_cloned() {
+    let a: Option<&i32> = Some(&3);
+    let b: Option<&i32> = None;
+
+    // cloned() make change the type of Option<&T> to Option<T>.
+    // If cloned() receives None, it returns None.
+    assert_eq!(a.cloned(), Some(3));
+    assert_eq!(b.cloned(), None);
+    assert_eq!(b, None);
+}
