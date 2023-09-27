@@ -1,5 +1,5 @@
 #[test]
-fn checked_operation() {
+fn checked_operation_3_1_2() {
     // Checked operations return None if the result would overflow.
     assert_eq!(100_u8.checked_add(155), Some(255));
     assert_eq!(100_u8.checked_add(156), None);
@@ -11,7 +11,7 @@ fn checked_operation() {
 }
 
 #[test]
-fn wrapping_operation() {
+fn wrapping_operation_3_1_2() {
     // In release builds, wrapping operations are standard operations.
     // Wrapping operations return the value wrapped around at the boundary of the type.
     assert_eq!(100_u8.wrapping_add(155), 255);
@@ -27,7 +27,7 @@ fn wrapping_operation() {
 }
 
 #[test]
-fn saturating_operation() {
+fn saturating_operation_3_1_2() {
     // Saturating operations saturate at the boundary of the type.
     assert_eq!(100_u8.saturating_add(155), 255);
     assert_eq!(100_u8.saturating_add(156), 255);
@@ -38,7 +38,7 @@ fn saturating_operation() {
 }
 
 #[test]
-fn overflowing_operation() {
+fn overflowing_operation_3_1_2() {
     // Overflowing operations return a tuple of the result and a bool.
     assert_eq!(100_u8.overflowing_add(155), (255, false));
     assert_eq!(100_u8.overflowing_add(156), (0, true));
